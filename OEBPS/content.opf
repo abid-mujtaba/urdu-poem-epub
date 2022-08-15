@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8"?>
+<package xmlns="http://www.idpf.org/2007/opf" unique-identifier="BookId" version="3.0">
+    <metadata
+        xmlns:dc="http://purl.org/dc/elements/1.1/"
+        xmlns:opf="http://www.idp.org/2007/opf"
+        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        >
+
+        <dc:title>کتے</dc:title>
+        <dc:language>en</dc:language>
+        <dc:creator id="creator">Faiz Ahmed Faiz</dc:creator>
+        <dc:description>Poem by Faiz Ahmed Faiz</dc:description>
+        <dc:date>2015-07</dc:date>
+
+        <dc:identifier id="BookId">کتے</dc:identifier>
+        <meta property="dcterms:modified">2022-08-14T13:57:00Z</meta>
+        <meta name="primary-writing-mode" content="horizontal-rl"/>
+    </metadata>
+
+    <manifest>
+        <item id="poem" href="poem.html" media-type="application/xhtml+xml" />
+        <item id="urdu-css" href="assets/css/urdu.css" media-type="text/css" />
+        <item id="jameel-noori-nastaleeq" href="assets/fonts/jameel-noori-nastaleez.ttf" media-type="application/octet-stream" />
+    </manifest>
+
+    <spine>
+        <itemref idref="poem" />
+    </spine>
+</package>

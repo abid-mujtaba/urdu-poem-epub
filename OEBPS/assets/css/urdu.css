@@ -1,0 +1,54 @@
+@font-face
+{
+    font-family: "jameel-noori-nastaleeq";
+    src: url("../fonts/jameel-noori-nastaleeq.ttf") format("truetype");
+}
+
+body
+{
+   direction: rtl;
+   font-family: "jameel-noori-nastaleeq";
+   font-size: 200%;
+   word-spacing: 0.25rem;
+   text-align: center;  /* Makes the headers align */
+   display: flex;       /* Required to get the div.bund to align along the center */
+   flex-direction: column;  /* We want the children of body to spread vertically */
+}
+
+h1
+{
+    font-size: 300%;
+    margin: 1rem;
+}
+
+h2
+{
+    margin-top: -1rem;
+    margin-bottom: 2rem
+}
+
+div.bund
+{
+    padding: 2rem;
+    padding-left: auto;
+    padding-right: auto;
+    width: 20rem;           /* Fixed width for each child p to stretch its text over */
+    align-self: center;     /* Make the div.bund align to the center of <body> */
+}
+
+p
+{
+    height: 1.75rem;
+    text-align: justify;
+}
+
+/*
+ * This is a hack the forces the preceding <p> to take up the full width of the parent
+ * div.bund allowing the `text-aling: justify` to do its magic.
+ */
+p::after
+{
+    content: '';
+    width: 100%;
+    display: inline-block;
+}
