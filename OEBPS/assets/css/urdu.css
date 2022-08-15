@@ -1,13 +1,13 @@
 @font-face
 {
-    font-family: "jameel-noori-nastaleeq";
+    font-family: "Jameel Noori Nastaleeq";
     src: url("../fonts/jameel-noori-nastaleeq.ttf") format("truetype");
 }
 
 body
 {
    direction: rtl;
-   font-family: "jameel-noori-nastaleeq";
+   font-family: "Jameel Noori Nastaleeq";
    word-spacing: 0.25em;
    text-align: center;  /* Makes the headers align */
    display: flex;       /* Required to get the div.bund to align along the center */

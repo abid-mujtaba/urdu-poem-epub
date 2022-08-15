@@ -20,7 +20,7 @@
     <manifest>
         <item id="poem" href="poem.html" media-type="application/xhtml+xml" />
         <item id="urdu-css" href="assets/css/urdu.css" media-type="text/css" />
-        <item id="jameel-noori-nastaleeq" href="assets/fonts/jameel-noori-nastaleez.ttf" media-type="application/octet-stream" />
+        <item id="jameel-noori-nastaleeq" href="assets/fonts/jameel-noori-nastaleeq.ttf" media-type="application/vnd.ms-opentype" />
     </manifest>
 
     <spine>
