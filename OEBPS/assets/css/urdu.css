@@ -18,7 +18,6 @@ h1
 {
     font-size: 300%;
     margin: 0;
-    margin-top: 1em;
 }
 
 h2
@@ -29,26 +28,18 @@ h2
 
 div.bund
 {
-    padding: 0.5em;
-    padding-left: auto;
-    padding-right: auto;
-    width: 10em;           /* Fixed width for each child p to stretch its text over */
-    align-self: center;     /* Make the div.bund align to the center of <body> */
+    padding: 1em;
+    width: 13em;           /* Fixed width for each child p to stretch its text over */
 }
 
-p
+div.stretch
 {
-    height: 1.5em;
+    height: 2.25em;
     text-align: justify;
 }
 
-/*
- * This is a hack the forces the preceding <p> to take up the full width of the parent
- * div.bund allowing the `text-aling: justify` to do its magic.
- */
-p::after
+div.stretch span
 {
-    content: '';
     width: 100%;
     display: inline-block;
 }
