@@ -30,6 +30,7 @@ div.bund
 {
     padding: 1em;
     width: 13em;           /* Fixed width for each child p to stretch its text over */
+    align-self: center;
 }
 
 div.stretch
