@@ -1,6 +1,7 @@
 """Inject poem data into template to create epub source."""
 
 
+from typing import List
 from jinja2 import Environment, FileSystemLoader
 from pathlib import Path
 from ruyaml import YAML
@@ -60,6 +61,24 @@ def inject_toc_ncx(title: str, author: str):
     file.write_text(content)
 
 
+def process_line(line: str) -> str:
+    """Process each line of the poem into HTML output."""
+    return line
+
+
+def inject_poem_html(title: str, author: str, poem: List[List[str]]):
+    """Inject the complete data into poem.html."""
+    env = jinja2_env()
+    template = env.get_template("poem.html.template")
+
+    sections = [[process_line(line) for line in section] for section in poem]
+
+    content = template.render(title=title, author=author, sections=sections)
+
+    file = BUILD_PATH / "poem.html"
+    file.write_text(content)
+
+
 def main():
     """Entrypoint for script."""
     data = get_data()
@@ -70,6 +89,7 @@ def main():
 
     inject_toc_html(title=title)
     inject_toc_ncx(title=title, author=author)
+    inject_poem_html(title=title, author=author, poem=poem)
 
 
 if "__main__" in __name__:

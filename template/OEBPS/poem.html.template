@@ -11,7 +11,7 @@
 
         {% for section in sections %}
         <div class="section">
-            {% for line in section.lines %}
+            {% for line in section %}
             <div class="stretch">
                 {{line}}
             </div>
