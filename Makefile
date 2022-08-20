@@ -7,4 +7,7 @@ pre-build:
 build: pre-build
 	python3.10 build.py
 
-.PHONY: pre-build build
+preview: build
+	python3.10 -m http.server -d build/OEBPS
+
+.PHONY: pre-build build preview
