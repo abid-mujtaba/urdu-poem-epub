@@ -6,17 +6,17 @@
     </head>
 
     <docTitle>
-        <text>کتے</text>
+        <text>{{title}}</text>
     </docTitle>
 
     <docAuthor>
-        <text>Abid H. Mujtaba</text>
+        <text>{{author}}</text>
     </docAuthor>
 
     <navMap>
         <navPoint id="chapter1" playOrder="1">
             <navLabel>
-                    <text>کتے</text>
+                    <text>{{title}}</text>
             </navLabel>
             <content src="poem.html" />
         </navPoint>

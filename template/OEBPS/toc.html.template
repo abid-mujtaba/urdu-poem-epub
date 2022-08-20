@@ -2,13 +2,13 @@
 <!DOCTYPE html>
 <html xmlns="http://www.w3.org/1999/xhtml" xmlns:epub="http://www.idpf.org/2007/ops">
   <head>
-    <title>کتے - TOC</title>
+    <title>{{title}} - TOC</title>
   </head>
   <body>
     <nav epub:type="toc" id="toc">
       <h1>Table of Contents</h1>
       <ol>
-        <li><a href="poem.html">کتے </a></li>
+        <li><a href="poem.html">{{title}}</a></li>
       </ol>
     </nav>
   </body>
