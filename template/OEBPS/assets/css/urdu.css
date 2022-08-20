@@ -24,7 +24,7 @@ h2
     margin-bottom: 1em;
 }
 
-div.bund
+div.section
 {
     padding: 1em;
     width: 13em;           /* Fixed width for each child p to stretch its text over */
