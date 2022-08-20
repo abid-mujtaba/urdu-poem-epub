@@ -3,7 +3,8 @@
 <html xmlns="http://www.w3.org/1999/xhtml" xmlns:epub="http://www.idfp.org/2007/ops">
     <head>
         <title>{{title}}</title>
-        <link rel="stylesheet" type="text/css" href="assets/css/urdu.css"/>
+        <link rel="stylesheet" type="text/css" href="assets/css/urdu.css" />
+        <script src="assets/js/calculateStretch.js"></script>
     </head>
     <body>
         <h1>{{title}}</h1>
