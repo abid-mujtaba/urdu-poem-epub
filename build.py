@@ -62,8 +62,17 @@ def inject_toc_ncx(title: str, author: str):
 
 
 def process_line(line: str) -> str:
-    """Process each line of the poem into HTML output."""
-    return line
+    """
+    Process each line of the poem into HTML output.
+
+    Split line into words based on whitespace.
+    Surround each word with <span> tags.
+    Concatenate all of them to create output line.
+
+    Note: A space must be added after every word for the Urdu ligatures to be
+          correctly rendered.
+    """
+    return "".join(f"<span>{word} </span>" for word in line.split())
 
 
 def inject_poem_html(title: str, author: str, poem: List[List[str]]):
