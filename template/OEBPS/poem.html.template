@@ -12,8 +12,8 @@
         {% for section in sections %}
         <div class="section">
             {% for line in section %}
-            <div class="stretch">
-                {{line}}
+            <div id="{{line.id}}" class="stretch">
+                {{line.text}}
             </div>
             {% endfor %}
         </div>

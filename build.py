@@ -1,9 +1,11 @@
 """Inject poem data into template to create epub source."""
 
 
-from typing import List
-from jinja2 import Environment, FileSystemLoader
+from collections import namedtuple
 from pathlib import Path
+from typing import List
+
+from jinja2 import Environment, FileSystemLoader
 from ruyaml import YAML
 
 
@@ -14,7 +16,7 @@ def get_data():
     """Get data from poem.yaml and validate it."""
     yaml = YAML(typ="safe")
 
-    with open("poem.yaml") as fin:
+    with open("poem.yaml", encoding="UTF-8") as fin:
         data = yaml.load(fin)
 
     # Validate data
@@ -61,7 +63,7 @@ def inject_toc_ncx(title: str, author: str):
     file.write_text(content)
 
 
-def process_line(line: str) -> str:
+def process_text(text: str) -> str:
     """
     Process each line of the poem into HTML output.
 
@@ -72,7 +74,15 @@ def process_line(line: str) -> str:
     Note: A space must be added after every word for the Urdu ligatures to be
           correctly rendered.
     """
-    return "".join(f"<span>{word} </span>" for word in line.split())
+    return "".join(f"<span>{word} </span>" for word in text.split())
+
+
+Line = namedtuple("Line", ("id", "text"))
+
+
+def process_line(text: str, section_id: int, line_id: int) -> Line:
+    """Proccess raw text from the poem to construct the Line object."""
+    return Line(f"{section_id}.{line_id}", process_text(text))
 
 
 def inject_poem_html(title: str, author: str, poem: List[List[str]]):
@@ -80,7 +90,13 @@ def inject_poem_html(title: str, author: str, poem: List[List[str]]):
     env = jinja2_env()
     template = env.get_template("poem.html.template")
 
-    sections = [[process_line(line) for line in section] for section in poem]
+    sections = [
+        [
+            process_line(text, section_id, line_id)
+            for line_id, text in enumerate(section)
+        ]
+        for section_id, section in enumerate(poem)
+    ]
 
     content = template.render(title=title, author=author, sections=sections)
 
