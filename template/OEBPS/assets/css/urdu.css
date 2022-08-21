@@ -6,17 +6,19 @@
 body {
     direction: rtl;
     font-family: "Jameel Noori Nastaleeq";
-    word-spacing: 0.25em;
+    font-size: 1em;
     /* Make the headers align */
     text-align: center;
 }
 
 h1 {
     font-size: 300%;
+    word-spacing: 0.25em;
     margin: 0;
 }
 
 h2 {
+    word-spacing: 0.25em;
     margin: 0;
     margin-bottom: 1em;
 }
