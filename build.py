@@ -82,7 +82,7 @@ Line = namedtuple("Line", ("id", "text"))
 
 def process_line(text: str, section_id: int, line_id: int) -> Line:
     """Proccess raw text from the poem to construct the Line object."""
-    return Line(f"{section_id}.{line_id}", process_text(text))
+    return Line(f"{section_id}_{line_id}", process_text(text))
 
 
 def inject_poem_html(title: str, author: str, poem: List[List[str]]):
