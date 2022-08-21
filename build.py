@@ -71,10 +71,16 @@ def process_text(text: str) -> str:
     Surround each word with <span> tags.
     Concatenate all of them to create output line.
 
-    Note: A space must be added after every word for the Urdu ligatures to be
-          correctly rendered.
+    Note: A space must be added after every word (except the last) for
+          the Urdu ligatures to be correctly rendered.
     """
-    return "".join(f"<span>{word} </span>" for word in text.split())
+    words = text.split()
+
+    spanned = [f'<span class="gap">{word} </span>' for word in words[:-1]]
+    # The last word is treated special with no space at its end and no gap class added
+    spanned.append(f"<span>{words[-1]}</span>")
+
+    return "".join(spanned)
 
 
 Line = namedtuple("Line", ("id", "text"))
