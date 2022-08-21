@@ -1,7 +1,6 @@
 """Inject poem data into template to create epub source."""
 
 
-from collections import namedtuple
 from pathlib import Path
 from typing import List
 
@@ -63,48 +62,12 @@ def inject_toc_ncx(title: str, author: str):
     file.write_text(content)
 
 
-def process_text(text: str) -> str:
-    """
-    Process each line of the poem into HTML output.
-
-    Split line into words based on whitespace.
-    Surround each word with <span> tags.
-    Concatenate all of them to create output line.
-
-    Note: A space must be added after every word (except the last) for
-          the Urdu ligatures to be correctly rendered.
-    """
-    words = text.split()
-
-    spanned = [f'<span class="gap">{word} </span>' for word in words[:-1]]
-    # The last word is treated special with no space at its end and no gap class added
-    spanned.append(f"<span>{words[-1]}</span>")
-
-    return "".join(spanned)
-
-
-Line = namedtuple("Line", ("id", "text"))
-
-
-def process_line(text: str, section_id: int, line_id: int) -> Line:
-    """Proccess raw text from the poem to construct the Line object."""
-    return Line(f"{section_id}-{line_id}", process_text(text))
-
-
 def inject_poem_html(title: str, author: str, poem: List[List[str]]):
     """Inject the complete data into poem.html."""
     env = jinja2_env()
     template = env.get_template("poem.html.template")
 
-    sections = [
-        [
-            process_line(text, section_id, line_id)
-            for line_id, text in enumerate(section)
-        ]
-        for section_id, section in enumerate(poem)
-    ]
-
-    content = template.render(title=title, author=author, sections=sections)
+    content = template.render(title=title, author=author, sections=poem)
 
     file = BUILD_PATH / "poem.html"
     file.write_text(content)
