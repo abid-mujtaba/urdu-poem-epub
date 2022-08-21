@@ -1,39 +1,35 @@
-@font-face
-{
+@font-face {
     font-family: "Jameel Noori Nastaleeq";
     src: url("../fonts/jameel-noori-nastaleeq.ttf") format("truetype");
 }
 
-body
-{
-   direction: rtl;
-   font-family: "Jameel Noori Nastaleeq";
-   word-spacing: 0.25em;
-   text-align: center;  /* Makes the headers align */
+body {
+    direction: rtl;
+    font-family: "Jameel Noori Nastaleeq";
+    word-spacing: 0.25em;
+    /* Make the headers align */
+    text-align: center;
 }
 
-h1
-{
+h1 {
     font-size: 300%;
     margin: 0;
 }
 
-h2
-{
+h2 {
     margin: 0;
     margin-bottom: 1em;
 }
 
-div.section
-{
-    padding: 1em;
-    width: 13em;           /* Fixed width for each child p to stretch its text over */
+div.section {
+    padding: 0;
+    /* Fixed width for each child p to stretch its text over */
+    width: 13em;
     margin-left: auto;
     margin-right: auto;
 }
 
-div.stretch
-{
+div.stretch {
     height: 2.25em;
     text-align: right;
 }
