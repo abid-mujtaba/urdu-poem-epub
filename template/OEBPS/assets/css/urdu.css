@@ -22,7 +22,8 @@ h2 {
 }
 
 div.section {
-    padding: 0;
+    padding-top: 1em;
+    padding-bottom: 1em;
     /* Fixed width for each child p to stretch its text over */
     width: 13em;
     margin-left: auto;
